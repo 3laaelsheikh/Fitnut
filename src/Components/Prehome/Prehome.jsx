@@ -147,11 +147,10 @@ const Prehome = () => {
         <div className="">
           <form onSubmit={formikObj.handleSubmit}>
             <h3 className="pb-2 colorzeaty">Enter your gender</h3>
-            <p>Gender: {formikObj.values.gender}</p>
 
 
-            <div className="d-flex mb-4">
-              <div className="w-50 px-1">
+            <div className="d-flex justify-content-between mb-4">
+              <div className="w-50 px-1" >      {/* style={{width:"150px"}}*/}
                 <input
                   type="radio"
                   className="btn-check justify-content-start"

@@ -11,10 +11,13 @@ const Categorytitle = () => {
   const [value, setValue] = useState("");
   const [calories, setCalories] = useState("");
   const [autoSubmit, setAutoSubmit] = useState(false);
+  const [isCaloriesLoading, setIsCaloriesLoading] = useState(false);
+
 
   const navigate = useNavigate();
 
   async function calculateCalories() {
+    setIsCaloriesLoading(true);
     try {
       const { data } = await axios.post(
         `https://abdo121212-fit-nutrition.onrender.com/calories/calculate`,
@@ -28,6 +31,8 @@ const Categorytitle = () => {
       setCalories(formattedBMR); // Set formatted BMR as a string with spaces
     } catch (err) {
       console.log("error", err);
+    } finally {
+      setIsCaloriesLoading(false);
     }
   }
 
@@ -135,10 +140,11 @@ const Categorytitle = () => {
           </div>
 
           <div className="d-flex justify-content-center py-5">
-            <Link className=" text-decoration-none" to={"/foodofday"}>
+            <Link className="text-decoration-none" to={calories ? "/foodofday" : "#"}>
               <button
-                type="submit"
+                type="button"
                 className="rounded-3 px-5 py-2 fs-3 backcolorzeaty text-white"
+                disabled={!calories}
               >
                 Get on diet
               </button>

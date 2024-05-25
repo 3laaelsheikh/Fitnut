@@ -47,6 +47,7 @@ const Homeslider = () => {
   return (
     <>
       <div className="slider-container py-5">
+        <h1 className="colorzeaty fw-bold">Featured Articles</h1>
         <Slider {...settings}>
           <div className="container">
           <div className="py-2 ">
