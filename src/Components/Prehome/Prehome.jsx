@@ -150,7 +150,7 @@ const Prehome = () => {
 
 
             <div className="d-flex justify-content-between mb-4">
-              <div className="w-50 px-1" >      {/* style={{width:"150px"}}*/}
+              <div className=" px-1" style={{width:"150px"}}>      
                 <input
                   type="radio"
                   className="btn-check justify-content-start"
@@ -174,7 +174,7 @@ const Prehome = () => {
                 </label>
               </div>
 
-              <div className="w-50 px-1">
+              <div className=" px-1"style={{width:"150px"}}>
                 <input
                   type="radio"
                   className="btn-check w-50"
