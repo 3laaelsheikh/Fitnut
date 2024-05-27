@@ -183,3 +183,7 @@ li .activee {
     left: 350px;
   }
 }
+
+.custom-radio {         
+  border: 2px solid rgba(114, 153, 0, 1); 
+}

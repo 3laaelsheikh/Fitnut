@@ -13,6 +13,9 @@ export function UserProvider({ children }) {
   const [imag, setImag] = useState("");
   const [email, setEmail] = useState("");
   const [perfectweight, setPerfectWeight] = useState("");
+  const [disea, setDisea] = useState("");
+
+  
 
 
   async function getUserDetails() {
@@ -31,8 +34,9 @@ export function UserProvider({ children }) {
       setGender(data.user.gender);
       setAge(data.user.birthdays);
       setImag(data.user.profileImage.url);
-      setEmail(data.user.email)
-      setPerfectWeight(data.user.perfect_weight)
+      setEmail(data.user.email);
+      setPerfectWeight(data.user.perfect_weight);
+      setDisea(data.user.diseases);
     } catch (err) {
       console.log("error", err);
     }
@@ -42,7 +46,7 @@ export function UserProvider({ children }) {
   // }, []);
 
   return (
-    <usercontext.Provider value={{ getUserDetails,perfectweight,setPerfectWeight,email,imag,setImag ,height,name ,gender ,age,setHeight ,setName ,setGender ,setAge , weight, role, setRole }}>
+    <usercontext.Provider value={{ getUserDetails,disea,setDisea,perfectweight,setPerfectWeight,email,imag,setImag ,height,name ,gender ,age,setHeight ,setName ,setGender ,setAge , weight, role, setRole }}>
       {children}
     </usercontext.Provider>
   );

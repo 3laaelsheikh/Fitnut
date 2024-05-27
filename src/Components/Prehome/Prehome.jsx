@@ -9,64 +9,22 @@ const Prehome = () => {
 
   const [gender,setGender]= useState("");
   const [sex,setSex]= useState("");
-  // const [user, setUser] = useState({
-  //   height: "",
-  //   weight: "",
-  //   gender: "",
-  //   birthdays: ""
-  // });
-  
- 
-  
-
-  // let user = {
-  //   height: "",
-  //   weight: "",
-  //   gender: sex,
-  //   birthdays: ""
-  // };
 
   const [errMsg, setErrMsg] = useState(null);
   const [sucssesMsg, setSucssesMsg] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [isDiseasesDropdownEnabled, setIsDiseasesDropdownEnabled] = useState(false);
+
   
   const navigate = useNavigate();
-
-  // async function nextInfo(values) {
-  //   setIsLoading(true);
-  //   try {
-  //     const { data } = await axios.post(
-  //       `https://fit-nutrition.onrender.com/auth/nextInfo`,
-  //       values,
-  //       {
-  //         headers: { token: localStorage.getItem("tkn") },
-  //       }
-  //     );
-  //     console.log(values);
-  //     console.log(data);
-
-  //     if (data.success) {
-  //       setSucssesMsg("Data set Successflly");
-  //       setTimeout(() => {
-  //         navigate("/home");
-  //       }, 2000);
-  //     }else{
-  //       setErrMsg(data.message)
-  //     }
-  //   } catch (err) {
-  //     console.log("error", err);
-  //     setErrMsg(err.response.data.message);
-  //   }
-
-  //   setIsLoading(false);
-  // }
 
   const formikObj = useFormik({
     initialValues: {
       height: "",
       weight: "",
       gender: "",
-      birthdays: ""
+      birthdays: "",
+      diseases: ""
     },
 
     validate: values => {
@@ -111,26 +69,20 @@ const Prehome = () => {
     
   });
 
-  // useEffect(() => {
-  //   // Sync formik values with user state
-  //   setUser({
-  //     height: formikObj.values.height,
-  //     weight: formikObj.values.weight,
-  //     gender: formikObj.values.gender,
-  //     birthdays: formikObj.values.birthdays
-  //   });
-  // }, [formikObj.values]);
-
   const handleGenderChange = (event) => {
     formikObj.setFieldValue('gender', event.target.value);
   };
 
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   setUser(formikObj.values);
-  //   // Assuming you want to send 'user' state to the server
-  //   console.log(user);
-  // };
+  const handleDiseaseChange = (event) => {
+    formikObj.setFieldValue('diseases', event.target.value);
+  };
+
+  const handleDiseaseOptionChange = (event) => {
+    setIsDiseasesDropdownEnabled(event.target.value === "yes");
+    if (event.target.value === "no") {
+      formikObj.setFieldValue('diseases', "");
+    }
+  };
 
   
   return (
@@ -150,7 +102,7 @@ const Prehome = () => {
 
 
             <div className="d-flex justify-content-between mb-4">
-              <div className=" px-1" style={{width:"150px"}}>      
+              <div className="w-50 px-1" >   
                 <input
                   type="radio"
                   className="btn-check justify-content-start"
@@ -174,7 +126,7 @@ const Prehome = () => {
                 </label>
               </div>
 
-              <div className=" px-1"style={{width:"150px"}}>
+              <div className="w-50 px-1">
                 <input
                   type="radio"
                   className="btn-check w-50"
@@ -275,11 +227,12 @@ const Prehome = () => {
             <div className="my-2">
               <div className="form-check form-check-inline">
                 <input
-                  className="form-check-input fs-5"
+                  className="form-check-input fs-5 "
                   type="radio"
-                  name="inlineRadioOptions"
+                  name="diseaseOptions"
                   id="inlineRadio1"
                   value="yes"
+                  onChange={handleDiseaseOptionChange}
                 />
                 <label
                   className="form-check-label fw-bold fs-5"
@@ -290,11 +243,12 @@ const Prehome = () => {
               </div>
               <div className="form-check form-check-inline">
                 <input
-                  className="form-check-input fs-5"
+                  className="form-check-input fs-5 "
                   type="radio"
-                  name="inlineRadioOptions"
+                  name="diseaseOptions"
                   id="inlineRadio2"
                   value="no"
+                  onChange={handleDiseaseOptionChange}
                 />
                 <label
                   className="form-check-label fw-bold fs-5"
@@ -307,17 +261,23 @@ const Prehome = () => {
 
             <div>
               <div className="input-group mb-4">
-                <textarea
-                  
-                  type="text"
-                  className="input rounded-3 w-100 "
-                  // required
-                  id="textarea"
-                  placeholder="Enter the diseases you suffer from "
-                ></textarea>
-                
+                <select
+                  onBlur={formikObj.handleBlur}
+                  onChange={handleDiseaseChange}
+                  value={formikObj.values.diseases}
+                  className="input rounded-3 w-100"
+                  id="diseases"
+                  disabled={!isDiseasesDropdownEnabled}
+                >
+                  <option value="" label="" />
+                  <option value="Sugar" label="Sugar" />
+                  <option value="pressure" label="Pressure" />
+                  <option value="heart" label="Heart" />
+                </select>
+                <label htmlFor="diseases" className="input-label">
+                  Select the disease you suffer from
+                </label>
               </div>
-              
             </div>
 
             <div className="text-center">

@@ -87,8 +87,9 @@ const Categorytitle = () => {
             <h2 className="colorzeaty">Category Title</h2>
           </div>
 
-          <div className="my-2">
-            <form onSubmit={formikObj.handleSubmit}>
+          <div className="my-2 ">
+            <form className="d-flex justify-content-center w-100" onSubmit={formikObj.handleSubmit}>
+              <div className="w-50 mt-5">
               <div className="my-2">
                 <select
                   className="input w-100 rounded-3"
@@ -121,6 +122,7 @@ const Categorytitle = () => {
                   <option value="middle">Middle</option>
                   <option value="high">High</option>
                 </select>
+              </div>
               </div>
             </form>
           </div>

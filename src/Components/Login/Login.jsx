@@ -171,27 +171,8 @@ const Login = () => {
               </button>
               </div>
               <div className="d-flex justify-content-center align-items-center">
-                <div>
-                  <div className="d-flex justify-content-center align-items-center align-baseline">
-                    <div className="line"></div>
-                    <p className="px-2 pt-2 colorzeaty">Or Login With</p>
-                    <div className="line"></div>
-                  </div>
-                  <div className="d-flex justify-content-center align-items-center">
-                    <div>
-                      <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"> <img src={require("../../Images/Facebook.png")} alt="icon of facebook" />
-</a>
-                    </div>
-                    <div>
-                    <a href="https://www.google.com/" target="_blank" rel="noopener noreferrer"> <img src={require("../../Images/Google.png")} className="px-2" alt="icon of google" />
-</a>
-                    </div>
-                    <div>
-                    <a href="https://x.com/?lang=en" target="_blank" rel="noopener noreferrer"> <img src={require("../../Images/Twitter.png")} alt="icon of twitter" />
-</a>
-                    </div>
-                  </div>
-
+                <div className="py-2">
+                  
                   <div className="d-flex justify-content-center align-items-center">
                   <p>
                     Already Have An Account?
