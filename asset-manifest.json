@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Fitnut/static/css/main.03a16b08.css",
-    "main.js": "/Fitnut/static/js/main.3383bc93.js",
+    "main.css": "/Fitnut/static/css/main.911d1370.css",
+    "main.js": "/Fitnut/static/js/main.a5ed3bdf.js",
     "static/js/453.252e98e8.chunk.js": "/Fitnut/static/js/453.252e98e8.chunk.js",
     "static/media/flat-lay-salad-juice-bottle 2.svg": "/Fitnut/static/media/flat-lay-salad-juice-bottle 2.a39477dc1cd655a425b6de90582e5fb4.svg",
     "static/media/Frame 1973.svg": "/Fitnut/static/media/Frame 1973.5b2f27951531dbab39390019ae95d207.svg",
@@ -54,12 +54,12 @@
     "static/media/linkedin.svg": "/Fitnut/static/media/linkedin.e712b11af6843724558740abc21f09b6.svg",
     "index.html": "/Fitnut/index.html",
     "static/media/iconfacebook.svg": "/Fitnut/static/media/iconfacebook.f88e750de7eac8ef8918ebf935f3b1da.svg",
-    "main.03a16b08.css.map": "/Fitnut/static/css/main.03a16b08.css.map",
-    "main.3383bc93.js.map": "/Fitnut/static/js/main.3383bc93.js.map",
+    "main.911d1370.css.map": "/Fitnut/static/css/main.911d1370.css.map",
+    "main.a5ed3bdf.js.map": "/Fitnut/static/js/main.a5ed3bdf.js.map",
     "453.252e98e8.chunk.js.map": "/Fitnut/static/js/453.252e98e8.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.03a16b08.css",
-    "static/js/main.3383bc93.js"
+    "static/css/main.911d1370.css",
+    "static/js/main.a5ed3bdf.js"
   ]
 }
